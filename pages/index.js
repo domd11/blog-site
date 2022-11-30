@@ -58,7 +58,7 @@ useEffect(() => {
       </div>
       <ul>
         {posts.map((post) => {
-          return <div><span className="post-title" onClick={() => router.push(`/Post/${post.title}`)}>{post.title} - {post.dateAdded.toDate().toDateString()}</span><br /><p>{post.shortDescript}</p>{user.email === "dominiquedesertb@gmail.com" ? <button onClick={() => deletePost(post.title)}>Delete Post</button> : ""}</div>
+          return <div><span className="post-title" onClick={() => router.push(`/Post/${post.title}`)}>{post.title} - {post.dateAdded.toDate().toDateString()}</span><br /><p>{post.shortDescript}</p>{user && user.email === "dominiquedesertb@gmail.com" ? <button onClick={() => deletePost(post.title)}>Delete Post</button> : ""}</div>
         })}
       </ul>
       </div>
