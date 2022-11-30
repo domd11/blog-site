@@ -4,6 +4,7 @@ import { auth, db } from '../Firebase'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import { useRouter } from 'next/router'
 import { doc, setDoc, Timestamp } from 'firebase/firestore'
+import Head from 'next/head'
 
 const CreateBlogPost = () => {
     const [content, setContent] = useState("")
@@ -31,6 +32,9 @@ const CreateBlogPost = () => {
     }
   return (
     <div>
+    <Head>
+        <title>Dom's Blog</title>
+    </Head>
         {user.email === "dominiquedesertb@gmail.com" ? 
             (
                 <div className='container'>

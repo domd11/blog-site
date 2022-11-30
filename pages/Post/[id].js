@@ -1,11 +1,13 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { collection, deleteDoc, doc, getDoc, getDocs, setDoc } from 'firebase/firestore';
+import { BLOCKED_PAGES } from 'next/dist/shared/lib/constants';
+import Head from 'next/head';
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import ReactMarkdown from 'react-markdown';
 import { auth, db } from '../../Firebase';
-
+import picture from "/pages/Blog.png"
 const Post = () => {
     const [post, setPost] = useState([])
     const [date, setDate] = useState("")
@@ -61,6 +63,9 @@ const Post = () => {
     }, [])
   return (
     <div className='container'>
+    <Head>
+        <title>Dom's Blog: {post.title}</title>
+    </Head>
         <h1>{id}</h1>
         <hr />
         <ReactMarkdown>{post.content}</ReactMarkdown>

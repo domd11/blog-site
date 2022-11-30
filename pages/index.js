@@ -8,6 +8,7 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore"
 import { async } from "@firebase/util"
+import Head from "next/head"
 export default function Home() {
   const [posts, setPosts] = useState([]); 
   const [user, loading] = useAuthState(auth); 
@@ -38,9 +39,12 @@ useEffect(() => {
 }, [])
   return (
     <div>
+    <Head>
+      <title>Dom's Blog</title>
+    </Head>
       <div className='header'>
         <h1>Dominique Desert</h1>
-        <p>Engineer, Developer</p>
+        <p>Mechatronics Engineer, Full Stack Developer, High School Freshman, College Freshman</p>
       </div>
 
       <div className='container'>
